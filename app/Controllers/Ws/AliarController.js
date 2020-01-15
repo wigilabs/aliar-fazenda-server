@@ -1,16 +1,19 @@
 'use strict'
 
 class AliarController {
+    
   constructor ({ socket, request }) {
     this.socket = socket
     this.request = request
   }
+    
      onMessage (message) {
     this.socket.broadcastToAll('message', message)
   }
-      onClose () {
+    
+     onClose () {
     // same as: socket.on('close')
-  }
+    }
 
   onError () {
     // same as: socket.on('error')

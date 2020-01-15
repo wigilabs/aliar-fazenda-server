@@ -10,6 +10,7 @@
 | provider here.
 |
 */
+
 const providers = [
   `${__dirname}/../providers/NewRelicProvider`,
   '@adonisjs/framework/providers/AppProvider',
