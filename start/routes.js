@@ -14,52 +14,11 @@
 */
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
+//import Craft from '../lib/objCrafter.js'
+const Craft = require('../lib/objCrafter.js');
+const data = new Craft();
+const odata = data.craftOdata('sect','nam','l1','v1','l2','v2','l3','v3','l4','v4')
 const Route = use('Route')
-/* 
-
-* Prueba de concepto objCrafter.js 
-const odata = Object.create(struct);
-odata.section='';
-odata.name='';
-odata.val1='';
-odata.val2='';
-odata.val3='':
-odata.val4='';
-*/
-
-const person = {
-   section:'Produccion',
-    name:'',
-    lab1:'',
-    val1:'',
-    lab2:'',
-    val2:'',
-    lab3:'',
-    val3:'',
-    lab4:'',
-    val4:'',
-    debug: function () {
-    console.log(`>>> ${this.section}\n>>> ${this.name}\n`+
-                `>>> ${this.lab1} : ${this.val1}\n`+
-                `>>> ${this.lab2} : ${this.val2}\n`+
-                `>>> ${this.lab3} : ${this.val3}\n`+
-                `>>> ${this.lab4} : ${this.val4}`);
-  }
-};
-
-const odata = Object.create(person);
-odata.section = "Produccion";
-odata.name = "Tractores";
-odata.lab1= "Aparcados";
-odata.val1 = "20";
-odata.lab2= "En campo";
-odata.val2 = "120";
-odata.lab3= "";
-odata.val3 = "";
-odata.lab4= "";
-odata.val4 = "";
-odata.debug();
-//End prueba de concepto
 Route.on('/').render('welcome')
 Route.get('/rest', ({request}) => {
     return {odata}
